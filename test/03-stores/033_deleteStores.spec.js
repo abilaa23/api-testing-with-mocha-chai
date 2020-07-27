@@ -19,7 +19,8 @@ describe('Delete Stores Test', function(){
            .set('Content-Type', 'application/json')
            .set({"Authorization": `Bearer ${global.auth_token}`})
            .end(function (err, res){
-               expect(res.status).to.equals(200);
+               response = res
+               expect(response.status).to.equals(200);
                expect(response.body).to.have.property('message');
                expect(response.body).to.be.jsonSchema(require ('./schema/deleteStores_schema.json'));
                done();
