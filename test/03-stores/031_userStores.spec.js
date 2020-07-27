@@ -1,10 +1,15 @@
 const chai = require('chai')
 const expect = require ('chai').expect
 const chaiHttp = require("chai-http")
+const jsonSchema = require('chai-json-schema')
+const dotenv = require("dotenv");
+
+dotenv.config();
 
 chai.use(chaiHttp);
+chai.use(jsonSchema);
 
-const api = chai.request('https://qaplay.dot.co.id')
+const api = chai.request(process.env.API_URI)
 
 describe('User Stores Test', function(){
 
