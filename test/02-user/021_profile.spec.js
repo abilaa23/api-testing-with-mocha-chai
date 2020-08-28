@@ -19,7 +19,8 @@ describe('Profile User Test', function(){
            .set('Content-Type', 'application/json')
            .set({"Authorization": `Bearer ${global.auth_token}`})
            .end(function (err, res){
-               expect(res.status).to.equals(200);
+               response = res;
+               expect(response.status).to.equals(200);
                expect(response.body.data).to.have.property('id');
                expect(response.body.data).to.have.property('name');
                expect(response.body).to.be.jsonSchema(require ('./schema/profile_schema.json'));
